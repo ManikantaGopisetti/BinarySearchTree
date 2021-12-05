@@ -68,4 +68,24 @@ public class BinaryTree<K extends Comparable<K>> {
 			System.out.println(root.key);
 		}
 	}
+
+	public boolean search(K key) {
+		if (root == null) {
+			return false;
+		}
+		if (root.key == key) {
+			return true;
+		}
+
+		if (root.key.compareTo(key) < 0) {
+			root = root.right;
+			return search(key);
+		}
+
+		if (root.key.compareTo(key) > 0) {
+			root = root.left;
+			return search(key);
+		}
+		return false;
+	}
 }
