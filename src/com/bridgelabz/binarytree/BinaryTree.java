@@ -42,4 +42,30 @@ public class BinaryTree<K extends Comparable<K>> {
 
 		}
 	}
+
+	public void preOrder() {
+		preOrderRec(this.root);
+	}
+
+	private void preOrderRec(MyBinaryNode<K> root) {
+
+		if (root != null) {
+			System.out.println(root.key);
+			preOrderRec(root.left);
+			preOrderRec(root.right);
+		}
+	}
+
+	public void postOrder() {
+		postOrderRec(this.root);
+	}
+
+	private void postOrderRec(MyBinaryNode<K> root) {
+
+		if (root != null) {
+			postOrderRec(root.left);
+			postOrderRec(root.right);
+			System.out.println(root.key);
+		}
+	}
 }
